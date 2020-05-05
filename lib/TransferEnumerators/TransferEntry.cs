@@ -11,7 +11,7 @@ namespace Microsoft.Azure.Storage.DataMovement.TransferEnumerators
     /// <summary>
     /// Base class of transfer entries.
     /// </summary>
-    abstract class TransferEntry
+    public abstract class TransferEntry
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TransferEntry" /> class.

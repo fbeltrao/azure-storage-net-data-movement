@@ -169,7 +169,7 @@ namespace Microsoft.Azure.Storage.DataMovement
                     throw new ArgumentException("Requires a DirectoryTransferContext instance", "value");
                 }
 
-                this.dirTransferContext = tempValue;
+                this.dirTransferContext = tempValue;                
             }
         }
 
@@ -499,10 +499,15 @@ namespace Microsoft.Azure.Storage.DataMovement
             }
         }
 
-        private static INameResolver GetNameResolver(TransferLocation sourceLocation, TransferLocation destLocation, char? delimiter)
+        private INameResolver GetNameResolver(TransferLocation sourceLocation, TransferLocation destLocation, char? delimiter)
         {
             Debug.Assert(sourceLocation != null, "sourceLocation");
             Debug.Assert(destLocation != null, "destLocation");
+
+            if (this.Context.NameResolver != null)
+            {
+                return this.Context.NameResolver;
+            }
 
             switch (sourceLocation.Type)
             {

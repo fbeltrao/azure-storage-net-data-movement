@@ -5,6 +5,7 @@
 //------------------------------------------------------------------------------
 namespace Microsoft.Azure.Storage.DataMovement
 {
+    using Microsoft.Azure.Storage.DataMovement.TransferEnumerators;
     using System;
     using System.IO;
     using System.Threading.Tasks;
@@ -139,6 +140,11 @@ namespace Microsoft.Azure.Storage.DataMovement
                 this.OverallProgressTracker.ProgressHandler = value;
             }
         }
+
+        /// <summary>
+        /// Gets or sets a custom NameResolver. If none the default implementation is used.
+        /// </summary>
+        public INameResolver NameResolver { get; set; }
 
         /// <summary>
         /// The event triggered when a file transfer is completed successfully.

@@ -15,7 +15,7 @@ namespace Microsoft.Azure.Storage.DataMovement.TransferEnumerators
 #if !BINARY_SERIALIZATION
     [DataContract]
 #endif
-    internal abstract class ListContinuationToken
+    public abstract class ListContinuationToken
     {
     }
 }
